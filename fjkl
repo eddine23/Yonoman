@@ -1,0 +1,46 @@
+[1mdiff --git a/src/components/Hero.jsx b/src/components/Hero.jsx[m
+[1mindex 83a68ee..16ddb06 100644[m
+[1m--- a/src/components/Hero.jsx[m
+[1m+++ b/src/components/Hero.jsx[m
+[36m@@ -4,22 +4,25 @@[m [mimport { ReactTyped } from "react-typed";[m
+ const Hero = () => {[m
+   return ([m
+     <div className="text-white">[m
+[31m-      <div className="max-w-[800px] mt-[96px] w-full h-screen mx-auto text-center flex flex-col justify-center">[m
+[31m-        <p className="text-[#00df9a] font-bold p-2">Hero</p>[m
+[31m-        <h1 className="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6">[m
+[31m-          YONO drinks all day[m
+[31m-        </h1>[m
+[31m-        <div>[m
+[31m-          <p className="md:text-5xl sm:text-4xl text-xl font bold">[m
+[31m-            Energy, Hype, And force[m
+[31m-          </p>[m
+[31m-          <ReactTyped[m
+[31m-            strings={["Yono", "Drinks", "Gaza"]}[m
+[31m-            typedSpeed={200}[m
+[31m-            backSpeed={140}[m
+[31m-            loop[m
+[31m-          />[m
+[31m-        </div>[m
+[32m+[m[32m      <div className="max-w-[800px] mt-[108px] w-full mx-auto text-center flex flex-col justify-center">[m
+[32m+[m[32m        <ReactTyped[m
+[32m+[m[32m          className="text-[#00df9a] font-bold p-2 md:text-7xl sm:text-6xl text-7xl md:py-6"[m
+[32m+[m[32m          strings={["Yonoman", "Yonosan", "Yonodrinks"]}[m
+[32m+[m[32m          typedSpeed={10}[m
+[32m+[m[32m          backSpeed={200}[m
+[32m+[m[32m          loop[m
+[32m+[m[32m        />[m
+[32m+[m[32m        <p className="md:text-2xl sm:text-1xl text-1xl font-bold md:py-6 ">[m
+[32m+[m[32m          All of our products are unique and are only accessible through our[m
+[32m+[m[32m          business, so you’ll be facing zero direct competition.[m
+[32m+[m[32m        </p>[m
+[32m+[m[32m        <p className="md:text-2xl sm:text-xl text-gray-500 ">[m
+[32m+[m[32m          Our business also includes a coffee shop and beer café in Belgium with[m
+[32m+[m[32m          franchising in progress in the Netherlands and beyond.{" "}[m
+[32m+[m[32m        </p>[m
+[32m+[m[32m        <button className="bg-[#00df9a] w-[200px] rounded-md font-medium my-5 mx-auto py-3 text-black">[m
+[32m+[m[32m          Our Products[m
+[32m+[m[32m        </button>[m
+       </div>[m
+     </div>[m
+   );[m
