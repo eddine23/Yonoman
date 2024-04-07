@@ -1,5 +1,10 @@
 import React, { useState, useRef } from "react";
-import { AiOutlineWhatsApp } from "react-icons/ai";
+import {
+  AiOutlineWhatsApp,
+  AiFillFacebook,
+  AiFillInstagram,
+  AiOutlineMail,
+} from "react-icons/ai";
 
 import emailjs from "emailjs-com";
 
@@ -143,8 +148,8 @@ const Red = () => {
                   <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
                     <div className="flex items-start">
                       <div className="shrink-0">
-                        <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-green-500">
-                          <AiOutlineWhatsApp
+                        <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-blue-500">
+                          <AiFillFacebook
                             style={{
                               fontSize: "2rem",
                               color: "#fff",
@@ -168,8 +173,8 @@ const Red = () => {
                   <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
                     <div className="align-start flex">
                       <div className="shrink-0">
-                        <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-green-500">
-                          <AiOutlineWhatsApp
+                        <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-orange-500">
+                          <AiFillInstagram
                             style={{
                               fontSize: "2rem",
                               color: "#fff",
@@ -191,11 +196,11 @@ const Red = () => {
                   <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
                     <div className="align-start flex">
                       <div className="shrink-0">
-                        <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-green-500">
-                          <AiOutlineWhatsApp
+                        <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-white">
+                          <AiOutlineMail
                             style={{
                               fontSize: "2rem",
-                              color: "#fff",
+                              color: "#000",
                             }}
                           />
                         </div>
