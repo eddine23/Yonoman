@@ -3,7 +3,8 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Products from "./components/Products";
 import Contact from "./components/Contact";
-import Red from "./components/Testcontact";
+//import Red from "./components/Testcontact";
+import Footer from "./components/Footer";
 
 function App() {
   const products = [
@@ -48,7 +49,7 @@ function App() {
       <Hero />
       <Products products={products} />
       <Contact />
-      <Red />
+      <Footer />
     </div>
   );
 }
