@@ -6,6 +6,7 @@ import {
   AiFillInstagram,
   AiOutlineMail,
 } from "react-icons/ai";
+import { RiTiktokLine } from "react-icons/ri";
 
 const Red = () => {
   const [emailData, setEmailData] = useState({
@@ -186,7 +187,10 @@ const Red = () => {
                 </form>
               </div>
               {/* Social Media Contacts */}
-              <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
+              <div className="w-full my-auto shrink-0 grow-0 basis-auto lg:w-7/12">
+                <h1 className="max-w-[80%] mx-auto text-white text-center text-3xl font-bold mb-10">
+                  Contact us via email or through our social media
+                </h1>
                 <div className="flex flex-wrap">
                   {/* WhatsApp */}
                   <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
@@ -200,16 +204,9 @@ const Red = () => {
                         </div>
                       </div>
                       {/* WhatsApp Contact Info */}
-                      <div className="ml-6 grow">
-                        <p className="mb-2 font-bold dark:text-white">
-                          Technical support
-                        </p>
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          support@example.com
-                        </p>
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          +1 234-567-89
-                        </p>
+                      <div className="ml-4 mb-4 ">
+                        <h1 className="font-bold dark:text-white ">Whatsapp</h1>
+                        <p className=" dark:text-white ">Whatsapp</p>
                       </div>
                     </div>
                   </div>
@@ -225,16 +222,9 @@ const Red = () => {
                         </div>
                       </div>
                       {/* Facebook Contact Info */}
-                      <div className="ml-6 grow">
-                        <p className="mb-2 font-bold dark:text-white">
-                          Sales questions
-                        </p>
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          sales@example.com
-                        </p>
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          +1 234-567-89
-                        </p>
+                      <div className="ml-4 mb-4 ">
+                        <h1 className="font-bold dark:text-white ">Facebook</h1>
+                        <p className=" dark:text-white ">Facebook</p>
                       </div>
                     </div>
                   </div>
@@ -250,41 +240,28 @@ const Red = () => {
                         </div>
                       </div>
                       {/* Instagram Contact Info */}
-                      <div className="ml-6 grow">
-                        <p className="mb-2 font-bold dark:text-white">Press</p>
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          press@example.com
-                        </p>
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          +1 234-567-89
-                        </p>
+                      <div className="ml-4 mb-4 ">
+                        <h1 className="font-bold dark:text-white ">
+                          Instagram
+                        </h1>
+                        <p className=" dark:text-white ">Instagram</p>
                       </div>
                     </div>
                   </div>
-                  {/* Mail */}
+                  {/* TikTok */}
                   <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
                     <div className="align-start flex">
-                      {/* Mail Icon */}
+                      {/* TikTok Icon */}
                       <div className="shrink-0">
-                        <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-white">
-                          <AiOutlineMail
-                            style={{ fontSize: "2rem", color: "#000" }}
+                        <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-black">
+                          <RiTiktokLine
+                            style={{ fontSize: "2rem", color: "#ffffff" }}
                           />
                         </div>
                       </div>
-                      {/* Mail
-
- Contact Info */}
-                      <div className="ml-6 grow">
-                        <p className="mb-2 font-bold dark:text-white">
-                          Bug report
-                        </p>
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          bugs@example.com
-                        </p>
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          +1 234-567-89
-                        </p>
+                      <div className="ml-4 mb-4 ">
+                        <h1 className="font-bold dark:text-white ">TikTok</h1>
+                        <p className=" dark:text-white ">TikTok</p>
                       </div>
                     </div>
                   </div>
