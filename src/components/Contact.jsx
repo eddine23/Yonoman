@@ -28,10 +28,29 @@ const Red = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Access the form using the ref
-    const formData = new FormData(formRef.current);
+    // Client-side validation
+    if (
+      !emailData.to ||
+      !emailData.senderName ||
+      !emailData.senderAddress ||
+      !emailData.senderPhone ||
+      !emailData.message
+    ) {
+      alert("Please fill out all required fields.");
+      return;
+    }
 
-    // Send email using EmailJS
+    if (!validateEmail(emailData.to)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (!validatePhoneNumber(emailData.senderPhone)) {
+      alert("Please enter a valid phone number.");
+      return;
+    }
+
+    // If all validation passes, send the email
     emailjs
       .send(
         "service_26690sh",
@@ -53,6 +72,17 @@ const Red = () => {
         alert("Failed to send email");
       });
   };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhoneNumber = (phone) => {
+    const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+    return phoneRegex.test(phone);
+  };
+
   return (
     <div className="container my-12 mx-auto md:px-6">
       <section>
@@ -124,7 +154,9 @@ const Red = () => {
                   Contact us via email or through our social media
                 </h1>
                 <div className="flex flex-wrap">
-                  {/* WhatsApp */}
+                  {/*
+
+ WhatsApp */}
                   <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
                     <div className="flex items-start">
                       {/* WhatsApp Icon */}
