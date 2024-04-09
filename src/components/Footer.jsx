@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <div className="text-white">
       <p className="w-full mx-auto">
-        made by @hadefbadreeddine for Yonobrand all rights reserved
+        Made by @Hadefbadreeddine for Yonobrand all rights reserved
       </p>
     </div>
   );
