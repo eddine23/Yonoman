@@ -7,7 +7,7 @@ const Navbar = () => {
   };
   return (
     <div className="flex justify-between items-center max-w[1240] mx-auto px-4 text-white">
-      <h1 className=" text-3xl font-bold text-[#00df9a]">YONO Home test</h1>
+      <h1 className=" text-3xl font-bold text-[#00df9a]">YONOMAN</h1>
       <ul className="hidden md:flex">
         <li className="p-4">Home</li>
         <li className="p-4">Product</li>

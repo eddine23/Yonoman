@@ -5,6 +5,7 @@ import Products from "./components/Products";
 import Contact from "./components/Contact";
 //import Red from "./components/Testcontact";
 import Footer from "./components/Footer";
+import Form from "./components/tst";
 
 function App() {
   const products = [
@@ -49,6 +50,7 @@ function App() {
       <Hero />
       <Products products={products} />
       <Contact />
+      <Form />
       <Footer />
     </div>
   );
