@@ -19,7 +19,11 @@ const Navbar = () => {
         <h1 className="text-3xl font-bold text-[#ecf20d]">YONO</h1>
 
         <div className="md:hidden">
-          <AiOutlineMenu size={20} onClick={toggleNav} />
+          <AiOutlineMenu
+            className="fill-[#ecf20d]"
+            size={20}
+            onClick={toggleNav}
+          />
         </div>
 
         <ul className="hidden md:flex">
@@ -78,7 +82,7 @@ const Navbar = () => {
             <div className="flex flex-col items-center justify-center h-full">
               <AiOutlineClose
                 size={20}
-                className="absolute top-4 right-4 cursor-pointer"
+                className="absolute top-4 right-4 cursor-pointer fill-[#ecf20d] "
                 onClick={toggleNav}
               />
               <ul className="p-4 uppercase">
