@@ -85,11 +85,11 @@ const Products = () => {
   }
 
   return (
-    <div className="w-full bg-[#1e1e1e] p-16 text-white" id="Products">
+    <div className="w-full bg-[#1e1e1e] p-8 sm:p-8 text-white" id="Products">
       {product.map((product, index) => (
         <div
           key={index}
-          className={`max-w-[960px] mx-auto mb-16 grid md:grid-cols-2 bg-[#161616] rounded-md`}
+          className={`max-w-[960px] mx-auto mb-16 grid md:grid-cols-2 md:max-w-[80%]: bg-[#161616] rounded-md`}
         >
           <img
             className={`w-full sm:w-96 h-auto my-10 mx-auto bg-[#EBCF5B] border-solid border-2 rounded-md ${renderImagePosition(

@@ -89,7 +89,7 @@ const Contact = () => {
         senderPhone: "",
         senderAddress: "",
       });
-    }, 5000);
+    }, 3000);
   };
 
   const validateField = (name, value) => {
