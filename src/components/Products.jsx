@@ -1,9 +1,43 @@
 import React, { useState } from "react";
 
-const Products = ({ products }) => {
-  const [showMore, setShowMore] = useState(
-    products ? Array(products.length).fill(false) : []
-  );
+const Products = () => {
+  const products = [
+    {
+      title: "YONO Cola Gaza Edition",
+      description:
+        "Introducing the all-new refreshing and delicious cola! Not only does it satisfy your taste buds, but it also carries a greater purpose. For every cola sold, we are committed to donating 5 cents to the children of Gaza.",
+      additionalText:
+        "With each sip of our cola, you can make a positive impact in the lives of those who need it most. By choosing our cola, you are not just treating yourself to a delightful beverage, but also contributing to a cause that supports the well-being and future of the children in Gaza. Imagine the smiles on their faces as they receive the support and resources they deserve. Together, we can make a difference, one cola at a time! So indulge in the refreshing taste of our cola, knowing that your purchase goes beyond quenching your thirst. Join us in spreading joy and hope to the children of Gaza. Together, let's create a brighter future, sip by sip.",
+      image: "/src/assets/img/Cola.png",
+    },
+    {
+      title: "YONO Cola Gaza Edition",
+      description:
+        "Introducing the all-new refreshing and delicious cola! Not only does it satisfy your taste buds, but it also carries a greater purpose. For every cola sold, we are committed to donating 5 cents to the children of Gaza.",
+      additionalText:
+        "With each sip of our cola, you can make a positive impact in the lives of those who need it most. By choosing our cola, you are not just treating yourself to a delightful beverage, but also contributing to a cause that supports the well-being and future of the children in Gaza. Imagine the smiles on their faces as they receive the support and resources they deserve. Together, we can make a difference, one cola at a time! So indulge in the refreshing taste of our cola, knowing that your purchase goes beyond quenching your thirst. Join us in spreading joy and hope to the children of Gaza. Together, let's create a brighter future, sip by sip.",
+      image: "/src/assets/img/Cola.png",
+    },
+    {
+      title: "YONO Cola Gaza Edition",
+      description:
+        "Introducing the all-new refreshing and delicious cola! Not only does it satisfy your taste buds, but it also carries a greater purpose. For every cola sold, we are committed to donating 5 cents to the children of Gaza.",
+      additionalText:
+        "With each sip of our cola, you can make a positive impact in the lives of those who need it most. By choosing our cola, you are not just treating yourself to a delightful beverage, but also contributing to a cause that supports the well-being and future of the children in Gaza. Imagine the smiles on their faces as they receive the support and resources they deserve. Together, we can make a difference, one cola at a time! So indulge in the refreshing taste of our cola, knowing that your purchase goes beyond quenching your thirst. Join us in spreading joy and hope to the children of Gaza. Together, let's create a brighter future, sip by sip.",
+      image: "/src/assets/img/energys.png",
+    },
+    {
+      title: "YONO Cola Gaza Edition",
+      description:
+        "Introducing the all-new refreshing and delicious cola! Not only does it satisfy your taste buds, but it also carries a greater purpose. For every cola sold, we are committed to donating 5 cents to the children of Gaza.",
+      additionalText:
+        "With each sip of our cola, you can make a positive impact in the lives of those who need it most. By choosing our cola, you are not just treating yourself to a delightful beverage, but also contributing to a cause that supports the well-being and future of the children in Gaza. Imagine the smiles on their faces as they receive the support and resources they deserve. Together, we can make a difference, one cola at a time! So indulge in the refreshing taste of our cola, knowing that your purchase goes beyond quenching your thirst. Join us in spreading joy and hope to the children of Gaza. Together, let's create a brighter future, sip by sip.",
+      image: "/src/assets/img/devils.png",
+    },
+    // Add more product objects here...
+  ];
+
+  const [showMore, setShowMore] = useState([]);
 
   const toggleShowMore = (index) => {
     const updatedShowMore = [...showMore];
@@ -12,17 +46,8 @@ const Products = ({ products }) => {
   };
 
   const renderImagePosition = (index) => {
-    if (index % 2 !== 0) {
-      return "order-2";
-    } else {
-      return "";
-    }
+    return index % 2 === 0 ? "order-1 sm:order-2" : "order-2 sm:order-1";
   };
-
-  // Add a check to handle the case when products array is empty or undefined
-  if (!products || products.length === 0) {
-    return <div>No products available</div>;
-  }
 
   return (
     <div className="w-full bg-[#1e1e1e] p-16 text-white" id="Products">
