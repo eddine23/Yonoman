@@ -6,9 +6,11 @@ const Navbar = () => {
     setNav(!nav);
   };
   return (
-    <div className="text-white">
-      <p className="w-full mx-auto">
-        Made by @Hadefbadreeddine for Yonobrand all rights reserved
+    <div className="text-white py-4">
+      <p className="text-center text-sm md:text-base">
+        Made by{" "}
+        <span className="text-sky-400 font-bold">@Hadefbadreeddine</span> for
+        Yonobrand &copy; All rights reserved.
       </p>
     </div>
   );
