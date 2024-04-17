@@ -92,14 +92,14 @@ const Products = () => {
           className={`max-w-[960px] mx-auto mb-16 grid md:grid-cols-2 md:max-w-[80%]: bg-[#161616] rounded-md`}
         >
           <img
-            className={`w-full sm:w-96 h-auto my-10 mx-auto bg-[#EBCF5B] border-solid border-2 rounded-md ${renderImagePosition(
+            className={`w-full sm:w-96 h-auto my-10 mx-auto bg-[#d35beb] border-solid border-2 rounded-md ${renderImagePosition(
               index
             )}`}
             src={product.image}
             alt={product.title}
           />
           <div className="flex flex-col justify-center">
-            <h1 className="md:text-4xl sm:text-3xl text-2xl text-[#EBCF5B] font-bold mx-8 my-4">
+            <h1 className="md:text-4xl sm:text-3xl text-2xl text-[#5beb6e] font-bold mx-8 my-4">
               {product.title}
             </h1>
             <p className="mx-8">{product.description}</p>

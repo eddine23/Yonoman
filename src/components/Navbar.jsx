@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 w-full z-10 bg-black">
       <div className="flex justify-between items-center max-w-[1240] mx-auto px-4 text-white">
-        <h1 className="text-3xl font-bold text-[#ecf20d]">YONO</h1>
+        <h1 className="text-3xl font-bold text-[#5beb6e]">YONO</h1>
 
         <div className="md:hidden">
           <AiOutlineMenu
