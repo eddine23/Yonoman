@@ -6,7 +6,7 @@ const Hero = () => {
     <div className="text-white mb-12" id="Home">
       <div className="max-w-[800px] mt-[108px] w-full mx-auto text-center flex flex-col justify-center">
         <ReactTyped
-          className="text-[#ff477a] lg:text-7xl md:text-5xl sm:text-3xl  text-3xl font-bold p-2  "
+          className="text-[#9747ff] lg:text-7xl md:text-5xl sm:text-3xl  text-3xl font-bold p-2  "
           strings={["Yonoman", "Yonosan", "Yonodrinks"]}
           typedSpeed={10}
           backSpeed={200}
