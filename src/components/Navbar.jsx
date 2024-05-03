@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import logo from "../../public/assets/img/logo.svg"; // Importing the SVG logo
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -16,7 +17,7 @@ const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 w-full z-10 bg-black">
       <div className="flex justify-between items-center max-w-[1240] mx-auto px-4 text-white">
-        <h1 className="text-3xl font-bold text-[#9747ff]">YONO</h1>
+        <img src={logo} alt="Logo" className=" w-24  w-12" />
 
         <div className="md:hidden">
           <AiOutlineMenu
@@ -53,10 +54,10 @@ const Navbar = () => {
           </li>
           <li className="p-4 cursor-pointer">
             <Link
-              to="About us"
+              to="AboutUs"
               spy={true}
               smooth={true}
-              offset={50}
+              offset={-150}
               duration={500}
               onClick={hideNav}
             >

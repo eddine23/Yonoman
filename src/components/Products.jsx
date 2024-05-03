@@ -6,9 +6,9 @@ const Products = () => {
     {
       title: "YONO Cola Gaza Edition",
       description:
-        "Introducing the all-new refreshing and delicious cola! Not only does it satisfy your taste buds, but it also carries a greater purpose. For every cola sold, we are committed to donating 5 cents to the children of Gaza.",
+        "Introducing the all-new refreshing and delicious YONO cola: Not only does it satisfy your taste buds, but it also carries a greater purpose. For every cola sold, a donation will be made to the children of Gaza.sluggish, mentally foggy, and emotionally disconnected.",
       additionalText:
-        "With each sip of our cola, you can make a positive impact in the lives of those who need it most. By choosing our cola, you are not just treating yourself to a delightful beverage, but also contributing to a cause that supports the well-being and future of the children in Gaza. Imagine the smiles on their faces as they receive the support and resources they deserve. Together, we can make a difference, one cola at a time! So indulge in the refreshing taste of our cola, knowing that your purchase goes beyond quenching your thirst. Join us in spreading joy and hope to the children of Gaza. Together, let's create a brighter future, sip by sip.",
+        "With each sip of our cola, you can make a positive impact in the lives of those who need it most. By choosing our cola, you choose a ‘Product of Peace’. you are not just treating yourself to a delightful beverage, but also contributing to a cause that supports the well-being and future of the children in Gaza. Imagine the smiles on their faces as they receive the support and resources they deserve. Together, we can make a difference, together we can rebuild, together we stand united against violence.  So, indulge in the refreshing taste of our cola, knowing that your purchase goes beyond quenching your thirst. Join us in spreading joy and hope to the children of Gaza. Together, let's create a brighter future, sip by sip.",
       image: "/assets/img/Cola.png",
     },
     {
@@ -35,31 +35,9 @@ const Products = () => {
         "Well, our YONO family got the solution for you: Introducing our exclusive Yono energy drink, we will energize your day with the invigorating power of YONO-MAN, the ultimate energy booster designed to fuel your adventures and elevate your performance. With its unique blend of natural ingredients, vitamins and refreshing taste. YONO-MAN is the perfect companion for those seeking an intense burst of energy. Our slogan, 'You’re the Man' embodies the spirit of YONO-MAN. It's a call to action for individuals who strive to seize the day, push their limits, and embrace their inner greatness. YONO-MAN empowers you to take charge, conquer challenges, and be the best version of yourself. Whether you're an athlete, a student burning the midnight oil, or someone simply looking for an extra kick to power through your day, YONO-MANis here to energize and inspire you. So, grab a can of YONO-MAN, unleash your potential, and show the world that 'You’re the man'! NOW YONO-MAN WILL ENERGISE YOUR DAY ;).",
       image: "/assets/img/devils.png",
     },
-    {
-      title: "YONO Cola Gaza Edition",
-      description:
-        "Introducing the all-new refreshing and delicious cola! Not only does it satisfy your taste buds, but it also carries a greater purpose. For every cola sold, we are committed to donating 5 cents to the children of Gaza.",
-      additionalText:
-        "With each sip of our cola, you can make a positive impact in the lives of those who need it most. By choosing our cola, you are not just treating yourself to a delightful beverage, but also contributing to a cause that supports the well-being and future of the children in Gaza. Imagine the smiles on their faces as they receive the support and resources they deserve. Together, we can make a difference, one cola at a time! So indulge in the refreshing taste of our cola, knowing that your purchase goes beyond quenching your thirst. Join us in spreading joy and hope to the children of Gaza. Together, let's create a brighter future, sip by sip.",
-      image: "/assets/img/devils.png",
-    },
-    {
-      title: "YONO Cola Gaza Edition",
-      description:
-        "Introducing the all-new refreshing and delicious cola! Not only does it satisfy your taste buds, but it also carries a greater purpose. For every cola sold, we are committed to donating 5 cents to the children of Gaza.",
-      additionalText:
-        "With each sip of our cola, you can make a positive impact in the lives of those who need it most. By choosing our cola, you are not just treating yourself to a delightful beverage, but also contributing to a cause that supports the well-being and future of the children in Gaza. Imagine the smiles on their faces as they receive the support and resources they deserve. Together, we can make a difference, one cola at a time! So indulge in the refreshing taste of our cola, knowing that your purchase goes beyond quenching your thirst. Join us in spreading joy and hope to the children of Gaza. Together, let's create a brighter future, sip by sip.",
-      image: "/assets/img/devils.png",
-    },
-    {
-      title: "YONO Cola Gaza Edition",
-      description:
-        "Introducing the all-new refreshing and delicious cola! Not only does it satisfy your taste buds, but it also carries a greater purpose. For every cola sold, we are committed to donating 5 cents to the children of Gaza.",
-      additionalText:
-        "With each sip of our cola, you can make a positive impact in the lives of those who need it most. By choosing our cola, you are not just treating yourself to a delightful beverage, but also contributing to a cause that supports the well-being and future of the children in Gaza. Imagine the smiles on their faces as they receive the support and resources they deserve. Together, we can make a difference, one cola at a time! So indulge in the refreshing taste of our cola, knowing that your purchase goes beyond quenching your thirst. Join us in spreading joy and hope to the children of Gaza. Together, let's create a brighter future, sip by sip.",
-      image: "/assets/img/devils.png",
-    },
-    // Add more product objects here...
+    // {
+    //   // Add more product objects here...
+    // },
   ];
 
   const [showMore, setShowMore] = useState(

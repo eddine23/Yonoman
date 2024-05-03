@@ -8,7 +8,7 @@ import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 function App() {
   return (
-    <div className="bg-[url(/assets/img/j.png)] bg-repeat-y pt-24 border-0	">
+    <div className="bg-[url(/assets/img/j.png)] bg-repeat-y pt-12 border-0	">
       <Navbar />
       <Hero />
       <Products />
