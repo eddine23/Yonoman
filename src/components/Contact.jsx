@@ -141,7 +141,7 @@ const Contact = () => {
                         errors.senderName
                           ? "border-red-500"
                           : "border-[#212121]"
-                      }  py-[0.32rem] px-3 focus:border-[#EBCF5B]`}
+                      }  py-[0.32rem] px-3 focus:border-[#9747ff]`}
                       type="text"
                       name="senderName"
                       placeholder="Your Full Name"
@@ -161,7 +161,7 @@ const Contact = () => {
                         errors.senderAddress
                           ? "border-red-500"
                           : "border-[#212121]"
-                      } bg-[#161616] py-[0.32rem] px-3 focus:border-[#EBCF5B]`}
+                      } bg-[#161616] py-[0.32rem] px-3 focus:border-[#9747ff]`}
                       type="email"
                       name="senderAddress"
                       placeholder="Your Address"
@@ -181,7 +181,7 @@ const Contact = () => {
                         errors.senderPhone
                           ? "border-red-500"
                           : "border-[#212121]"
-                      } bg-[#161616] py-[0.32rem] px-3 focus:border-[#EBCF5B]`}
+                      } bg-[#161616] py-[0.32rem] px-3 focus:border-[#9747ff]`}
                       type="tel"
                       name="senderPhone"
                       placeholder="Your Phone Number"
@@ -199,7 +199,7 @@ const Contact = () => {
                     <textarea
                       className={`block w-full rounded  outline-none border-2 ${
                         errors.message ? "border-red-500" : "border-[#212121]"
-                      } bg-[#161616] py-[0.32rem] px-3 focus:border-[#EBCF5B]`}
+                      } bg-[#161616] py-[0.32rem] px-3 focus:border-[#9747ff]`}
                       name="message"
                       placeholder="Message"
                       value={emailData.message}
@@ -215,7 +215,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     value="Send"
-                    className="mb-6 inline-block w-full rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-3px_#EBCF5B] transition duration-150 ease-in-out bg-[#EBCF5B] hover:bg-green-500 hover:shadow-[0_8px_9px_-3px_rgba(192, 202, 59, 0.3),0_4px_18px_0_rgba(202, 200, 59, 0.2)] focus:bg-bg-[#1E1E1E] focus:shadow-[0_8px_9px_-3px_rgba(171, 202, 59, 0.3),0_4px_18px_0_rgba(176, 202, 59, 0.2)]"
+                    className="mb-6 inline-block w-full rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-3px_#9747ff] transition duration-150 ease-in-out bg-[#9747ff] hover:bg-purple-400 hover:shadow-[0_8px_9px_-3px_rgba(192, 202, 59, 0.3),0_4px_18px_0_rgba(202, 200, 59, 0.2)] focus:bg-bg-[#1E1E1E] focus:shadow-[0_8px_9px_-3px_rgba(171, 202, 59, 0.3),0_4px_18px_0_rgba(176, 202, 59, 0.2)]"
                   >
                     Send
                   </button>
