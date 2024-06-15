@@ -73,7 +73,7 @@ const Navbar = () => {
               duration={500}
               onClick={hideNav}
             >
-              Contact us
+              Contact Us
             </Link>
           </li>
         </ul>
