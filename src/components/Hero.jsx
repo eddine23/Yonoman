@@ -18,7 +18,7 @@ const Hero = () => {
           All of our products are unique and are only accessible through our
           business, so you’ll be facing zero direct competition.
         </p>
-        <p className="lg:text-3xl md:text-xl sm:text-lg text-lg text-gray-500 max-w-[600px] px-12 mx-auto">
+        <p className="lg:text-3xl md:text-xl sm:text-lg text-lg text-gray-300 max-w-[600px] px-12 mx-auto">
           Our business also includes a coffee shop and beer café in Belgium with
           franchising in progress in the Netherlands and beyond.
         </p>

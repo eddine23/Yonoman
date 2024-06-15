@@ -1,0 +1,15 @@
+body,
+html,
+#root,
+.App {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.bg-custom {
+  background-image: url("/assets/img/x.png");
+  background-repeat: repeat-y;
+  background-size: 100% auto; /* Ensures the image width fits the container */
+  background-position: top left; /* Aligns the images without gaps */
+}

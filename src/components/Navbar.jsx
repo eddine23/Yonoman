@@ -15,8 +15,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full z-10 bg-black">
-      <div className="flex justify-between items-center max-w-[1240] mx-auto px-4 text-white">
+    <div className="fixed  top-0 left-0 w-full z-10 bg-black">
+      <div className="flex justify-between items-center max-w-[1240] mx-auto px-4 text-white h-16">
         <img src={logo} alt="Logo" className=" w-24  w-12" />
 
         <div className="md:hidden">

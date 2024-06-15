@@ -42,7 +42,7 @@ const AboutUs = () => {
       </div> */}
 
       <main class="mx-auto max-w-3xl px-12">
-        <h1 class=" pb-4 text-center text-4xl md:text-2xl md:uppercase  sm:text-sm font-bold text-[#9747ff]  underline">
+        <h1 class=" pb-4 text-center xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl font-bold text-[#9747ff]  underline">
           About Us
         </h1>
         <section class="grid grid-cols-1 gap-y-3 ">
@@ -88,6 +88,24 @@ const AboutUs = () => {
               <br />
               2. <b>‘tGoudenMandeken :</b> first café I opened 10 years ago,
               which was, and still is, reflecting the deep Belgian culture.
+              Naomi Cosmetics 10 years ago, was an unforgettable journey. <br />
+              <br />
+              3. <b>Yo’s Place: :</b> A new concept coffee and Belgian beer Café
+              is born and readyafter a year after 10 years of experience.
+              <br />
+              <br />
+              4. <b>a second concept coffee :</b> and Belgian beer Café opened
+              after 2 years of running the successful Yo’s Place concept, and is
+              more then ready for franchise opportunities.
+              <br />
+              <br />
+              5. <b>Then Covid came… :</b> But used the bad moments to source,
+              create, design, produce Italian coffee IL DIAVOLO di TORINO.
+              <br />
+              <br />
+              6. <b>New plans for the future:</b> creating more enhanced new
+              drinks, grow awareness worldwide and start franchises of Yo’s
+              Place abroad.
             </p>
           </details>
 
