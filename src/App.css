@@ -8,7 +8,7 @@ html,
 }
 
 .bg-custom {
-  background-image: url("/assets/img/x.png");
+  background-image: url("/assets/img/Yo.png");
   background-repeat: repeat-y;
   background-size: 100% auto; /* Ensures the image width fits the container */
   background-position: top left; /* Aligns the images without gaps */
