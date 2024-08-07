@@ -42,6 +42,7 @@ const Contact = () => {
 
     return () => clearInterval(timer);
   }, [loading]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEmailData({ ...emailData, [name]: value });
@@ -84,6 +85,8 @@ const Contact = () => {
     setTimeout(() => {
       setMessageStatus(null);
       setEmailData({
+        to: "",
+        subject: "",
         message: "",
         senderName: "",
         senderPhone: "",
@@ -124,6 +127,14 @@ const Contact = () => {
   const validatePhoneNumber = (phone) => {
     const phoneRegex = /^\+?[1-9]\d{9,14}$/;
     return phoneRegex.test(phone);
+  };
+
+  const handleSocialClick = (url) => {
+    window.open(url, "_blank");
+  };
+
+  const handleEmailClick = (email) => {
+    window.location.href = `mailto:${email}`;
   };
 
   return (
@@ -241,11 +252,6 @@ const Contact = () => {
                     Message not sent!! Please check your information
                   </div>
                 )}
-                {messageStatus === "error" && (
-                  <div className="text-red-500">
-                    Message not sent!! Please check your information
-                  </div>
-                )}
               </div>
               <div className="w-full my-auto shrink-0  grow-0 basis-auto lg:w-7/12">
                 <h1 className="max-w-[80%] mx-auto text-white text-center md:text-3xl  font-bold mb-10">
@@ -255,7 +261,12 @@ const Contact = () => {
                   <div className="flex flex-wrap mx-auto">
                     {/* WhatsApp */}
                     <div className="w-full mb-12 flex justify-center shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
-                      <div className="flex items-start">
+                      <div
+                        className="flex items-start cursor-pointer"
+                        onClick={() =>
+                          handleSocialClick("https://wa.me/+32491736271")
+                        }
+                      >
                         {/* WhatsApp Icon */}
                         <div className="shrink-0">
                           <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-green-500">
@@ -269,13 +280,20 @@ const Contact = () => {
                           <h1 className="font-bold dark:text-white ">
                             Whatsapp
                           </h1>
-                          <p className=" dark:text-white ">Whatsapp</p>
+                          <p className=" dark:text-white ">+32491736271</p>
                         </div>
                       </div>
                     </div>
                     {/* Facebook */}
                     <div className="mb-12 w-full flex justify-center shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
-                      <div className="flex items-start">
+                      <div
+                        className="flex items-start cursor-pointer"
+                        onClick={() =>
+                          handleSocialClick(
+                            "https://www.facebook.com/profile.php?id=61557169808012"
+                          )
+                        }
+                      >
                         {/* Facebook Icon */}
                         <div className="shrink-0">
                           <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-blue-500">
@@ -289,13 +307,20 @@ const Contact = () => {
                           <h1 className="font-bold dark:text-white ">
                             Facebook
                           </h1>
-                          <p className=" dark:text-white ">Facebook</p>
+                          <p className=" dark:text-white ">Yono Drinks</p>
                         </div>
                       </div>
                     </div>
                     {/* Instagram */}
                     <div className="mb-12 w-full flex justify-center shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
-                      <div className="align-start flex">
+                      <div
+                        className="align-start flex cursor-pointer"
+                        onClick={() =>
+                          handleSocialClick(
+                            "https://www.instagram.com/yono.drinks.be?igsh=bGlycDQ2eGtkNjk0&utm_source=qr"
+                          )
+                        }
+                      >
                         {/* Instagram Icon */}
                         <div className="shrink-0">
                           <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-orange-500">
@@ -309,25 +334,30 @@ const Contact = () => {
                           <h1 className="font-bold dark:text-white ">
                             Instagram
                           </h1>
-                          <p className=" dark:text-white ">Instagram</p>
+                          <p className=" dark:text-white ">yono.drinks.be</p>
                         </div>
                       </div>
                     </div>
                     {/* TikTok */}
-                    <div className="mb-12 w-full flex justify-center shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
-                      <div className="align-start flex">
-                        {/* TikTok Icon */}
-                        <div className="shrink-0">
-                          <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-black">
-                            <RiTiktokLine
-                              style={{ fontSize: "2rem", color: "#ffffff" }}
-                            />
-                          </div>
+                    <div className="mb-12 w-full flex justify-center shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6 cursor-pointer">
+                      {/* TikTok Icon */}
+                      <div
+                        className="shrink-0 cursor-pointer"
+                        onClick={() =>
+                          handleSocialClick(
+                            "https://www.tiktok.com/@yono.drinks.be?_t=8nEAJwuzd5s&_r=1"
+                          )
+                        }
+                      >
+                        <div className="inline-block rounded-md bg-primary-100 p-2 text-primary bg-black">
+                          <RiTiktokLine
+                            style={{ fontSize: "2rem", color: "#ffffff" }}
+                          />
                         </div>
-                        <div className="ml-4 mb-4 ">
-                          <h1 className="font-bold dark:text-white ">TikTok</h1>
-                          <p className=" dark:text-white ">TikTok</p>
-                        </div>
+                      </div>
+                      <div className="ml-4 mb-4 cursor-pointer">
+                        <h1 className="font-bold dark:text-white ">TikTok</h1>
+                        <p className=" dark:text-white ">yono.drinks.be</p>
                       </div>
                     </div>
                   </div>
