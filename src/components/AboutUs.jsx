@@ -7,13 +7,13 @@ const AboutUs = () => {
       id="AboutUs"
     >
       <div className="w-full mx-auto p-8 grid bg-[#161616e8] rounded-md">
-        <main class="mx-auto max-w-3xl px-12">
-          <h1 class=" pb-4 text-center xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl font-bold text-[#9747ff]  underline">
+        <main className="mx-auto max-w-3xl px-12">
+          <h1 className=" pb-4 text-center xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl font-bold text-[#9747ff]  underline">
             About Us
           </h1>
-          <section class="grid grid-cols-1 gap-y-3 ">
-            <details open class="group py-1 text-lg ">
-              <summary class="flex cursor-pointer flex-row items-center justify-between py-4 text-xl font-semibold text-white marker:[font-size:0px] border-b-2 border-[#9747ff] ">
+          <section className="grid grid-cols-1 gap-y-3 ">
+            <details open className="group py-1 text-lg ">
+              <summary className="flex cursor-pointer flex-row items-center justify-between py-4 text-xl font-semibold text-white marker:[font-size:0px] border-b-2 border-[#9747ff] ">
                 <AiFillDownCircle
                   className="fill-[#9747ff] mx-2 w-24 right-0 text-base transition-transform  group-open:rotate-180"
                   size={30}
@@ -21,7 +21,7 @@ const AboutUs = () => {
                 My Name is Johan Leeman, and, following, I will take you back to
                 the secret behind creation of YONO:
               </summary>
-              <p class="text-white">
+              <p className="text-white">
                 <br />
                 From my childhood I was interested in traveling, discovering,
                 doing things differently than expected, stubbornly striving for
@@ -39,8 +39,8 @@ const AboutUs = () => {
               </p>
             </details>
 
-            <details class="group py-1 text-lg ">
-              <summary class="flex cursor-pointer flex-row items-center justify-between py-4 text-xl font-semibold text-white marker:[font-size:0px] border-b-2 border-[#9747ff] ">
+            <details className="group py-1 text-lg ">
+              <summary className="flex cursor-pointer flex-row items-center justify-between py-4 text-xl font-semibold text-white marker:[font-size:0px] border-b-2 border-[#9747ff] ">
                 <div className="w-full flex">
                   <AiFillDownCircle
                     className="fill-[#9747ff] mx-2 w-24 right-0 text-base transition-transform  group-open:rotate-60"
@@ -51,7 +51,7 @@ const AboutUs = () => {
               </summary>
 
               <br />
-              <p class="text-white">
+              <p className="text-white">
                 1. <b>Naomi Cosmetics :</b> Returned to Belgium after closing
                 Naomi Cosmetics 10 years ago, was an unforgettable journey.{" "}
                 <br />
@@ -83,7 +83,7 @@ const AboutUs = () => {
         </main>
       </div>
       <div className="w-[66%] mx-auto mt-20 p-8 grid bg-[#161616e8] rounded-md">
-        <h1 class=" pb-4 text-center xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl font-bold text-[#9747ff]  underline">
+        <h1 className=" pb-4 text-center xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl font-bold text-[#9747ff]  underline">
           The Secret Behind YONO
         </h1>
         <p className="text-white max-w-[100%] text-2xl">
