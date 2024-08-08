@@ -102,8 +102,8 @@ const Products = () => {
   const [fullscreenImage, setFullscreenImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
-  const [zoomLevel, setZoomLevel] = useState(1);
-  const [startIndex, setStartIndex] = useState(0);
+  const [startIndex, setStartIndex] = useState(Array(products.length).fill(0));
+  const [touchStart, setTouchStart] = useState(null);
 
   const toggleShowMore = (index) => {
     const updatedShowMore = [...showMore];
@@ -115,7 +115,6 @@ const Products = () => {
     setFullscreenImage(products[productIndex].largeImages[imageIndex]);
     setCurrentImageIndex(imageIndex);
     setCurrentProductIndex(productIndex);
-    setZoomLevel(1);
   };
 
   const handleNextImage = () => {
@@ -124,7 +123,6 @@ const Products = () => {
       products[currentProductIndex].largeImages.length;
     setFullscreenImage(products[currentProductIndex].largeImages[newIndex]);
     setCurrentImageIndex(newIndex);
-    setZoomLevel(1);
   };
 
   const handlePrevImage = () => {
@@ -135,34 +133,44 @@ const Products = () => {
       products[currentProductIndex].largeImages.length;
     setFullscreenImage(products[currentProductIndex].largeImages[newIndex]);
     setCurrentImageIndex(newIndex);
-    setZoomLevel(1);
-  };
-
-  const toggleZoom = () => {
-    setZoomLevel((prevZoom) =>
-      prevZoom === 1 ? 1.5 : prevZoom === 1.5 ? 2 : 1
-    );
   };
 
   const closeFullscreen = (e) => {
     if (e.target === e.currentTarget) {
       setFullscreenImage(null);
-      setZoomLevel(1);
     }
   };
 
   const handleThumbnailScroll = (direction, productIndex) => {
-    const maxStartIndex = Math.max(
-      0,
-      products[productIndex].smallImages.length - 4
-    );
-    setStartIndex((prevIndex) => {
+    setStartIndex((prevIndexes) => {
+      const newIndexes = [...prevIndexes];
+      const maxStartIndex = Math.max(
+        0,
+        products[productIndex].smallImages.length - 4
+      );
       if (direction === "left") {
-        return Math.max(0, prevIndex - 1);
+        newIndexes[productIndex] = Math.max(0, newIndexes[productIndex] - 1);
       } else {
-        return Math.min(maxStartIndex, prevIndex + 1);
+        newIndexes[productIndex] = Math.min(
+          maxStartIndex,
+          newIndexes[productIndex] + 1
+        );
       }
+      return newIndexes;
     });
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchStart === null) return;
+    const touchEnd = e.touches[0].clientX;
+    const diff = touchStart - touchEnd;
+    if (diff > 50) handleNextImage();
+    else if (diff < -50) handlePrevImage();
+    setTouchStart(null);
   };
 
   return (
@@ -173,11 +181,10 @@ const Products = () => {
           className={`max-w-[960px] mx-auto mb-16 flex flex-col md:grid md:grid-cols-3 bg-[#161616] rounded-md`}
         >
           <div
-            className={`flex flex-col justify-center p-8 order-2 md:order-1 md:col-span-2 ${
-              index % 2 === 0 ? "md:order-1" : "md:order-2"
+            className={`md:col-span-2 flex flex-col justify-center p-8 order-2 md:order-none ${
+              index % 2 === 0 ? "md:order-2" : "md:order-1"
             }`}
           >
-            {/* Product information content */}
             <div className="flex justify-between border-b-4 py-2">
               <p className="text-white font-bold">{product.title}</p>
               <h1 className="text-white font-bold">{product.qua}</h1>
@@ -199,8 +206,8 @@ const Products = () => {
           </div>
 
           <div
-            className={`flex justify-center items-center p-8 order-1 md:order-2 ${
-              index % 2 === 0 ? "md:order-2" : "md:order-1"
+            className={`flex justify-center items-center p-8 order-1 md:order-none ${
+              index % 2 === 0 ? "md:order-1" : "md:order-2"
             }`}
           >
             <div className="max-w-[300px] w-full">
@@ -211,7 +218,7 @@ const Products = () => {
                 onClick={() => handleImageClick(currentImageIndex, index)}
               />
               <div className="flex justify-center mt-4 relative">
-                {startIndex > 0 && (
+                {startIndex[index] > 0 && (
                   <button
                     className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white"
                     onClick={() => handleThumbnailScroll("left", index)}
@@ -221,25 +228,25 @@ const Products = () => {
                 )}
                 <div className="flex justify-center">
                   {product.smallImages
-                    .slice(startIndex, startIndex + 4)
+                    .slice(startIndex[index], startIndex[index] + 4)
                     .map((image, imgIndex) => (
                       <img
                         key={imgIndex}
                         className={`w-12 h-12 m-1 cursor-pointer border-2 ${
-                          currentImageIndex === startIndex + imgIndex &&
+                          currentImageIndex === startIndex[index] + imgIndex &&
                           currentProductIndex === index
                             ? "border-[#9747ff]"
                             : "border-transparent"
                         }`}
                         src={image}
-                        alt={`${product.title} ${startIndex + imgIndex}`}
+                        alt={`${product.title} ${startIndex[index] + imgIndex}`}
                         onClick={() =>
-                          handleImageClick(startIndex + imgIndex, index)
+                          handleImageClick(startIndex[index] + imgIndex, index)
                         }
                       />
                     ))}
                 </div>
-                {startIndex < product.smallImages.length - 4 && (
+                {startIndex[index] < product.smallImages.length - 4 && (
                   <button
                     className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white"
                     onClick={() => handleThumbnailScroll("right", index)}
@@ -254,7 +261,7 @@ const Products = () => {
       ))}
       {fullscreenImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
+          className="fixed inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center z-50"
           onClick={closeFullscreen}
         >
           <button
@@ -263,31 +270,47 @@ const Products = () => {
           >
             &times;
           </button>
-          <button
-            className="absolute left-4 text-white text-2xl"
-            onClick={handlePrevImage}
-          >
-            &#8249;
-          </button>
-          <img
-            className={`max-w-full max-h-full transition-transform duration-300`}
-            style={{
-              transform: `scale(${zoomLevel})`,
-              cursor: zoomLevel > 1 ? "move" : "zoom-in",
-            }}
-            src={fullscreenImage}
-            alt="Fullscreen"
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleZoom();
-            }}
-          />
-          <button
-            className="absolute right-4 text-white text-2xl"
-            onClick={handleNextImage}
-          >
-            &#8250;
-          </button>
+          <div className="relative w-full h-3/4">
+            <img
+              className="w-full h-full object-contain"
+              src={fullscreenImage}
+              alt="Fullscreen"
+              onClick={(e) => e.stopPropagation()}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+            />
+            <button
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-black bg-white bg-opacity-50 p-2 rounded-full"
+              onClick={handlePrevImage}
+            >
+              &#8249;
+            </button>
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-black bg-white bg-opacity-50 p-2 rounded-full"
+              onClick={handleNextImage}
+            >
+              &#8250;
+            </button>
+          </div>
+          <div className="flex justify-center mt-4 overflow-x-auto w-full">
+            {products[currentProductIndex].smallImages.map(
+              (image, imgIndex) => (
+                <img
+                  key={imgIndex}
+                  className={`w-16 h-16 m-1 cursor-pointer border-2 ${
+                    currentImageIndex === imgIndex
+                      ? "border-[#9747ff]"
+                      : "border-transparent"
+                  }`}
+                  src={image}
+                  alt={`Thumbnail ${imgIndex}`}
+                  onClick={() =>
+                    handleImageClick(imgIndex, currentProductIndex)
+                  }
+                />
+              )
+            )}
+          </div>
         </div>
       )}
     </div>
