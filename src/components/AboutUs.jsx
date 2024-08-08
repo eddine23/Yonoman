@@ -1,33 +1,33 @@
 import React from "react";
 import { AiFillDownCircle } from "react-icons/ai";
+
 const AboutUs = () => {
   return (
     <div
-      className="w-full mx-auto p-8 grid  md:max-w-[80%]: bg-[#161616e8] rounded-md"
+      className="w-full mx-auto p-4 md:p-8 grid bg-[#161616e8] rounded-md"
       id="AboutUs"
     >
-      <div className="w-full mx-auto p-8 grid bg-[#161616e8] rounded-md">
-        <main className="mx-auto max-w-3xl px-12">
-          <h1 className=" pb-4 text-center xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl font-bold text-[#9747ff]  underline">
+      <div className="w-full mx-auto p-4 md:p-8 grid bg-[#161616e8] rounded-md">
+        <main className="mx-auto max-w-3xl px-4 md:px-8">
+          <h1 className="pb-4 text-center text-2xl md:text-3xl lg:text-4xl font-bold text-[#9747ff] underline">
             About Us
           </h1>
-          <section className="grid grid-cols-1 gap-y-3 ">
-            <details open className="group py-1 text-lg ">
-              <summary className="flex cursor-pointer flex-row items-center justify-between py-4 text-xl font-semibold text-white marker:[font-size:0px] border-b-2 border-[#9747ff] ">
+          <section className="grid grid-cols-1 gap-y-3">
+            <details open className="group py-1 text-base md:text-lg">
+              <summary className="flex cursor-pointer flex-row items-center justify-between py-4 text-lg md:text-xl font-semibold text-white marker:[font-size:0px] border-b-2 border-[#9747ff]">
                 <AiFillDownCircle
-                  className="fill-[#9747ff] mx-2 w-24 right-0 text-base transition-transform  group-open:rotate-180"
+                  className="fill-[#9747ff] mx-2 transition-transform group-open:rotate-180"
                   size={30}
                 />
                 My Name is Johan Leeman, and, following, I will take you back to
                 the secret behind creation of YONO:
               </summary>
-              <p className="text-white">
-                <br />
-                From my childhood I was interested in traveling, discovering,
+              <p className="text-white mt-2">
+                From my childhood, I was interested in traveling, discovering,
                 doing things differently than expected, stubbornly striving for
-                better& more self-improvement.
+                better & more self-improvement.
                 <br />
-                <br /> After completingmy studies in photography, I moved to
+                <br /> After completing my studies in photography, I moved to
                 Australia to emigrate in search of innovation, but a stopover in
                 Japan was the breakthrough for plenty of my creative businesses’
                 ideas.
@@ -39,38 +39,35 @@ const AboutUs = () => {
               </p>
             </details>
 
-            <details className="group py-1 text-lg ">
-              <summary className="flex cursor-pointer flex-row items-center justify-between py-4 text-xl font-semibold text-white marker:[font-size:0px] border-b-2 border-[#9747ff] ">
-                <div className="w-full flex">
+            <details className="group py-1 text-base md:text-lg">
+              <summary className="flex cursor-pointer flex-row items-center justify-between py-4 text-lg md:text-xl font-semibold text-white marker:[font-size:0px] border-b-2 border-[#9747ff]">
+                <div className="flex items-center">
                   <AiFillDownCircle
-                    className="fill-[#9747ff] mx-2 w-24 right-0 text-base transition-transform  group-open:rotate-60"
+                    className="fill-[#9747ff] mx-2 transition-transform group-open:rotate-60"
                     size={30}
                   />
                   Few examples of my entrepreneur journey are:
                 </div>
               </summary>
-
-              <br />
-              <p className="text-white">
-                1. <b>Naomi Cosmetics :</b> Returned to Belgium after closing
-                Naomi Cosmetics 10 years ago, was an unforgettable journey.{" "}
+              <p className="text-white mt-2">
+                1. <b>Naomi Cosmetics:</b> Returned to Belgium after closing
+                Naomi Cosmetics 10 years ago, was an unforgettable journey.
                 <br />
                 <br />
-                2. <b>‘tGoudenMandeken :</b> first café I opened 10 years ago,
-                which was, and still is, reflecting the deep Belgian culture.{" "}
+                2. <b>‘tGoudenMandeken:</b> first café I opened 10 years ago,
+                which was, and still is, reflecting the deep Belgian culture.
                 <br />
                 <br />
-                3. <b>Yo’s Place: :</b>A new concept coffee and Belgian beer
-                Café is born and ready after a year after 10 years of
-                experience.
+                3. <b>Yo’s Place:</b> A new concept coffee and Belgian beer Café
+                is born and ready after a year after 10 years of experience.
                 <br />
                 <br />
-                4. <b> Yo’s Place : </b> second concept coffee and Belgian beer
+                4. <b>Yo’s Place:</b> second concept coffee and Belgian beer
                 Café opened after 2 years of running the successful Yo’s Place
-                concept, and is more then ready for franchise oppo
+                concept, and is more then ready for franchise opportunities.
                 <br />
                 <br />
-                5. <b>Then Covid came… :</b> But used the bad moments to source,
+                5. <b>Then Covid came…:</b> But used the bad moments to source,
                 create, design, produce Italian coffee IL DIAVOLO di TORINO.
                 <br />
                 <br />
@@ -82,16 +79,16 @@ const AboutUs = () => {
           </section>
         </main>
       </div>
-      <div className="w-[66%] mx-auto mt-20 p-8 grid bg-[#161616e8] rounded-md">
-        <h1 className=" pb-4 text-center xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl font-bold text-[#9747ff]  underline">
+      <div className="w-full md:w-[80%] mx-auto mt-8 md:mt-20 p-4 md:p-8 grid bg-[#161616e8] rounded-md">
+        <h1 className="pb-4 text-center text-2xl md:text-3xl lg:text-4xl font-bold text-[#9747ff] underline">
           The Secret Behind YONO
         </h1>
-        <p className="text-white max-w-[100%] text-2xl">
+        <p className="text-white text-base md:text-xl lg:text-2xl">
           After all my years of exploring & experiencing different cultures, I
-          have come to realize that with Yo’s Place as a home, a drinkembodies
+          have come to realize that with Yo’s Place as a home, a drink embodies
           the essence of our human connection; a drink serves as our common
           ground where individuals from diverse backgrounds can gather, bond,
-          and share moments of joy, sorrow, and everything in between; Through
+          and share moments of joy, sorrow, and everything in between. Through
           the act of raising a glass, we find solace in companionship,
           solidarity in shared experiences, and a simple reminder of our
           fundamental need for connection with one another. So, from now on we

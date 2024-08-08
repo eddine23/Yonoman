@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const Products = () => {
   const products = [
@@ -100,39 +100,76 @@ const Products = () => {
     products ? Array(products.length).fill(false) : []
   );
   const [fullscreenImage, setFullscreenImage] = useState(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentImageIndices, setCurrentImageIndices] = useState(
+    Array(products.length).fill(0)
+  );
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
   const [startIndex, setStartIndex] = useState(Array(products.length).fill(0));
   const [touchStart, setTouchStart] = useState(null);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+
+  const fullscreenImageRef = useRef(null);
+
+  useEffect(() => {
+    if (!fullscreenImage) {
+      setZoomLevel(1);
+      setDragOffset({ x: 0, y: 0 });
+    }
+  }, [fullscreenImage]);
 
   const toggleShowMore = (index) => {
-    const updatedShowMore = [...showMore];
-    updatedShowMore[index] = !updatedShowMore[index];
-    setShowMore(updatedShowMore);
+    setShowMore((prev) => prev.map((item, i) => (i === index ? !item : item)));
   };
 
   const handleImageClick = (imageIndex, productIndex) => {
     setFullscreenImage(products[productIndex].largeImages[imageIndex]);
-    setCurrentImageIndex(imageIndex);
+    setCurrentImageIndices((prev) =>
+      prev.map((item, i) => (i === productIndex ? imageIndex : item))
+    );
     setCurrentProductIndex(productIndex);
   };
 
   const handleNextImage = () => {
-    const newIndex =
-      (currentImageIndex + 1) %
-      products[currentProductIndex].largeImages.length;
-    setFullscreenImage(products[currentProductIndex].largeImages[newIndex]);
-    setCurrentImageIndex(newIndex);
+    setCurrentImageIndices((prev) =>
+      prev.map((item, i) => {
+        if (i === currentProductIndex) {
+          return (item + 1) % products[i].largeImages.length;
+        }
+        return item;
+      })
+    );
+    setFullscreenImage(
+      products[currentProductIndex].largeImages[
+        (currentImageIndices[currentProductIndex] + 1) %
+          products[currentProductIndex].largeImages.length
+      ]
+    );
+    resetZoom();
   };
 
   const handlePrevImage = () => {
-    const newIndex =
-      (currentImageIndex -
-        1 +
-        products[currentProductIndex].largeImages.length) %
-      products[currentProductIndex].largeImages.length;
-    setFullscreenImage(products[currentProductIndex].largeImages[newIndex]);
-    setCurrentImageIndex(newIndex);
+    setCurrentImageIndices((prev) =>
+      prev.map((item, i) => {
+        if (i === currentProductIndex) {
+          return (
+            (item - 1 + products[i].largeImages.length) %
+            products[i].largeImages.length
+          );
+        }
+        return item;
+      })
+    );
+    setFullscreenImage(
+      products[currentProductIndex].largeImages[
+        (currentImageIndices[currentProductIndex] -
+          1 +
+          products[currentProductIndex].largeImages.length) %
+          products[currentProductIndex].largeImages.length
+      ]
+    );
+    resetZoom();
   };
 
   const closeFullscreen = (e) => {
@@ -142,22 +179,17 @@ const Products = () => {
   };
 
   const handleThumbnailScroll = (direction, productIndex) => {
-    setStartIndex((prevIndexes) => {
-      const newIndexes = [...prevIndexes];
-      const maxStartIndex = Math.max(
-        0,
-        products[productIndex].smallImages.length - 4
-      );
-      if (direction === "left") {
-        newIndexes[productIndex] = Math.max(0, newIndexes[productIndex] - 1);
-      } else {
-        newIndexes[productIndex] = Math.min(
-          maxStartIndex,
-          newIndexes[productIndex] + 1
-        );
-      }
-      return newIndexes;
-    });
+    setStartIndex((prev) =>
+      prev.map((item, i) => {
+        if (i === productIndex) {
+          const maxStartIndex = Math.max(0, products[i].smallImages.length - 4);
+          return direction === "left"
+            ? Math.max(0, item - 1)
+            : Math.min(maxStartIndex, item + 1);
+        }
+        return item;
+      })
+    );
   };
 
   const handleTouchStart = (e) => {
@@ -173,6 +205,43 @@ const Products = () => {
     setTouchStart(null);
   };
 
+  const handleZoom = (e) => {
+    e.preventDefault();
+    if (zoomLevel === 1) {
+      setZoomLevel(2);
+    } else if (zoomLevel === 2) {
+      setZoomLevel(3);
+    } else {
+      resetZoom();
+    }
+  };
+
+  const resetZoom = () => {
+    setZoomLevel(1);
+    setDragOffset({ x: 0, y: 0 });
+  };
+
+  const handleMouseDown = (e) => {
+    if (zoomLevel > 1) {
+      setDragStart({
+        x: e.clientX - dragOffset.x,
+        y: e.clientY - dragOffset.y,
+      });
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (zoomLevel > 1 && e.buttons === 1) {
+      const newX = e.clientX - dragStart.x;
+      const newY = e.clientY - dragStart.y;
+      setDragOffset({ x: newX, y: newY });
+    }
+  };
+
+  const handleMouseUp = () => {
+    setDragStart({ x: 0, y: 0 });
+  };
+
   return (
     <div className="w-full p-8 sm:p-8 text-white" id="Products">
       {products.map((product, index) => (
@@ -182,7 +251,7 @@ const Products = () => {
         >
           <div
             className={`md:col-span-2 flex flex-col justify-center p-8 order-2 md:order-none ${
-              index % 2 === 0 ? "md:order-2" : "md:order-1"
+              index % 2 === 0 ? "md:order-1" : "md:order-2"
             }`}
           >
             <div className="flex justify-between border-b-4 py-2">
@@ -207,15 +276,17 @@ const Products = () => {
 
           <div
             className={`flex justify-center items-center p-8 order-1 md:order-none ${
-              index % 2 === 0 ? "md:order-1" : "md:order-2"
+              index % 2 === 0 ? "md:order-2" : "md:order-1"
             }`}
           >
             <div className="max-w-[300px] w-full">
               <img
                 className="w-full h-auto bg-[#1b1b1b] border-solid rounded-md cursor-pointer"
-                src={product.smallImages[currentImageIndex]}
+                src={product.smallImages[currentImageIndices[index]]}
                 alt={product.title}
-                onClick={() => handleImageClick(currentImageIndex, index)}
+                onClick={() =>
+                  handleImageClick(currentImageIndices[index], index)
+                }
               />
               <div className="flex justify-center mt-4 relative">
                 {startIndex[index] > 0 && (
@@ -233,8 +304,8 @@ const Products = () => {
                       <img
                         key={imgIndex}
                         className={`w-12 h-12 m-1 cursor-pointer border-2 ${
-                          currentImageIndex === startIndex[index] + imgIndex &&
-                          currentProductIndex === index
+                          currentImageIndices[index] ===
+                          startIndex[index] + imgIndex
                             ? "border-[#9747ff]"
                             : "border-transparent"
                         }`}
@@ -270,12 +341,23 @@ const Products = () => {
           >
             &times;
           </button>
-          <div className="relative w-full h-3/4">
+          <div className="relative w-full h-3/4 overflow-hidden">
             <img
-              className="w-full h-full object-contain"
+              ref={fullscreenImageRef}
+              className="w-full h-full object-contain transition-transform duration-200 ease-in-out"
+              style={{
+                transform: `scale(${zoomLevel}) translate(${
+                  dragOffset.x / zoomLevel
+                }px, ${dragOffset.y / zoomLevel}px)`,
+                cursor: zoomLevel > 1 ? "move" : "zoom-in",
+              }}
               src={fullscreenImage}
               alt="Fullscreen"
-              onClick={(e) => e.stopPropagation()}
+              onClick={handleZoom}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
             />
@@ -298,7 +380,7 @@ const Products = () => {
                 <img
                   key={imgIndex}
                   className={`w-16 h-16 m-1 cursor-pointer border-2 ${
-                    currentImageIndex === imgIndex
+                    currentImageIndices[currentProductIndex] === imgIndex
                       ? "border-[#9747ff]"
                       : "border-transparent"
                   }`}
