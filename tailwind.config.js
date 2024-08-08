@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {},
     screens: {
-      sm: "375px",
-      // => @media (min-width: 640px) { ... }
-
-      md: "560px",
+      sm: "560px",
       // => @media (min-width: 768px) { ... }
+
+      md: "760px",
+      // => @media (min-width: 640px) { ... }
 
       lg: "1024px",
       // => @media (min-width: 1024px) { ... }

@@ -170,13 +170,14 @@ const Products = () => {
       {products.map((product, index) => (
         <div
           key={index}
-          className={`max-w-[960px] mx-auto mb-16 grid md:grid-cols-3 bg-[#161616] rounded-md`}
+          className={`max-w-[960px] mx-auto mb-16 flex flex-col md:grid md:grid-cols-3 bg-[#161616] rounded-md`}
         >
           <div
-            className={`col-span-2 flex flex-col justify-center p-8 ${
-              index % 2 === 0 ? "order-1" : "order-2"
+            className={`flex flex-col justify-center p-8 order-2 md:order-1 md:col-span-2 ${
+              index % 2 === 0 ? "md:order-1" : "md:order-2"
             }`}
           >
+            {/* Product information content */}
             <div className="flex justify-between border-b-4 py-2">
               <p className="text-white font-bold">{product.title}</p>
               <h1 className="text-white font-bold">{product.qua}</h1>
@@ -196,52 +197,57 @@ const Products = () => {
               {showMore[index] ? "Read less" : "Read more"}
             </button>
           </div>
+
           <div
-            className={`relative p-8 flex flex-col justify-center ${
-              index % 2 === 0 ? "order-2" : "order-1"
+            className={`flex justify-center items-center p-8 order-1 md:order-2 ${
+              index % 2 === 0 ? "md:order-2" : "md:order-1"
             }`}
           >
-            <img
-              className="w-[100%] h-auto bg-[#1b1b1b] border-solid rounded-md cursor-pointer"
-              src={product.smallImages[currentImageIndex]}
-              alt={product.title}
-              onClick={() => handleImageClick(currentImageIndex, index)}
-            />
-            <div className="flex justify-center mt-4 relative">
-              {startIndex > 0 && (
-                <button
-                  className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white"
-                  onClick={() => handleThumbnailScroll("left", index)}
-                >
-                  &#8249;
-                </button>
-              )}
-              {product.smallImages
-                .slice(startIndex, startIndex + 4)
-                .map((image, imgIndex) => (
-                  <img
-                    key={imgIndex}
-                    className={`w-12 h-12 m-1 cursor-pointer border-2 ${
-                      currentImageIndex === startIndex + imgIndex &&
-                      currentProductIndex === index
-                        ? "border-[#9747ff]"
-                        : "border-transparent"
-                    }`}
-                    src={image}
-                    alt={`${product.title} ${startIndex + imgIndex}`}
-                    onClick={() =>
-                      handleImageClick(startIndex + imgIndex, index)
-                    }
-                  />
-                ))}
-              {startIndex < product.smallImages.length - 4 && (
-                <button
-                  className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white"
-                  onClick={() => handleThumbnailScroll("right", index)}
-                >
-                  &#8250;
-                </button>
-              )}
+            <div className="max-w-[300px] w-full">
+              <img
+                className="w-full h-auto bg-[#1b1b1b] border-solid rounded-md cursor-pointer"
+                src={product.smallImages[currentImageIndex]}
+                alt={product.title}
+                onClick={() => handleImageClick(currentImageIndex, index)}
+              />
+              <div className="flex justify-center mt-4 relative">
+                {startIndex > 0 && (
+                  <button
+                    className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white"
+                    onClick={() => handleThumbnailScroll("left", index)}
+                  >
+                    &#8249;
+                  </button>
+                )}
+                <div className="flex justify-center">
+                  {product.smallImages
+                    .slice(startIndex, startIndex + 4)
+                    .map((image, imgIndex) => (
+                      <img
+                        key={imgIndex}
+                        className={`w-12 h-12 m-1 cursor-pointer border-2 ${
+                          currentImageIndex === startIndex + imgIndex &&
+                          currentProductIndex === index
+                            ? "border-[#9747ff]"
+                            : "border-transparent"
+                        }`}
+                        src={image}
+                        alt={`${product.title} ${startIndex + imgIndex}`}
+                        onClick={() =>
+                          handleImageClick(startIndex + imgIndex, index)
+                        }
+                      />
+                    ))}
+                </div>
+                {startIndex < product.smallImages.length - 4 && (
+                  <button
+                    className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white"
+                    onClick={() => handleThumbnailScroll("right", index)}
+                  >
+                    &#8250;
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
